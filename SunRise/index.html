@@ -530,22 +530,10 @@
 
     <script>
         var imageMapping = {
-            "images/teams1.jpg": "images/teamb1.jpg",
-            "images/teams2.jpg": "images/teamb2.jpg",
-            "images/teams3.jpg": "images/teamb3.jpg",
-            "images/teams4.jpg": "images/teamb4.jpg"
-        };
-        var nameMapping = {
-            "images/teams1.jpg": "Lucas Jimenez",
-            "images/teams2.jpg": "Johna Doe",
-            "images/teams3.jpg": "Jane Smith",
-            "images/teams4.jpg": "Robert Johnson",
-        };
-        var titleMapping = {
-            "images/teams1.jpg": "Manager",
-            "images/teams2.jpg": "IT Head",
-            "images/teams3.jpg": "Manager",
-            "images/teams4.jpg": "Developer",
+            "images/teams1.jpg": {"url":"images/teamb1.jpg","name":"Lucas Jimenez","title":"Manager"},
+            "images/teams2.jpg": {"url":"images/teamb2.jpg","name":"Johna Doe","title":"IT Head"},
+            "images/teams3.jpg": {"url":"images/teamb3.jpg","name":"Jane Smith","title":"Manager"},
+            "images/teams4.jpg": {"url":"images/teamb4.jpg","name":"Robert Johnson","title":"Developer"},
         };
 
         $('.img-link').click(function () {
@@ -556,19 +544,14 @@
                 //get the 'src' attribute of the clicked item
                 var clickedImageSrc = $(this).find('img').attr('src');
                 //image mapping to get the corresponding replacement image
-                var replacementImageSrc = imageMapping[clickedImageSrc];
-                //name mapping to get the corresponding team member name
-                var teamMemberName = nameMapping[clickedImageSrc];
+                var selectedImage = imageMapping[clickedImageSrc];
 
-                var teamMemberTitle = titleMapping[clickedImageSrc];
-
-                //update the img and name of team members
-                $('.team-pic img').attr('src', replacementImageSrc);
-                $('.team-details h2').text(teamMemberName);
-                $('.team-details span').text(teamMemberTitle);
+                //call the img and data of team members
+                $('.team-pic img').attr('src', selectedImage.url);
+                $('.team-details h2').text(selectedImage.name);
+                $('.team-details span').text(selectedImage.title);
             }
             $(this).addClass('active-class');
-
         });
     </script>
 </body>
