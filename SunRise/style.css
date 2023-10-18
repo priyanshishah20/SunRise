@@ -89,7 +89,7 @@ p {
 }
 
 .search-icon {
-    width: 4rem;
+    width: 5rem;
     background: var(--secondary-bg);
     text-align: center;
     color: var(--white) !important;
@@ -437,7 +437,7 @@ p {
     margin-left: 14rem;
 }
 
-.team-members>ul li {
+.team-members>ul .img-link {
     display: inline-block;
     padding: 10px 15px;
     opacity: 0.5;
@@ -452,7 +452,7 @@ p {
     user-select: none;
 }
 
-.team-members>ul li.active {
+.team-members>ul .img-link.active-class {
     opacity: 1;
 }
 
